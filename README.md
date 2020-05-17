@@ -45,7 +45,40 @@ Linux has new implementation Kernel based Virtual Machine called KVM which allow
       -  pidstat: rolling process summary, can help us understand which process is using most CPU      
       -  iostat: I/o stats       
       -  free -m       
-      -  sar      
+      -  sar : displays the contents of selected cumulative activity counters in the operating system. Information is reported on the paging system, i/o, CPUs, network interfaces, swap space, file system, and others. 
       -  top rolling summary of all the commands which came up virtual memory, swap memory, load avg, cpu usage, process detail 
         
 6. Networking:
+    Operating systems use load balancing to schedule tasks across physical processors, container orchestrators such as Kubernetes use load balancing to schedule tasks across a compute cluster, and network load balancers use load balancing to schedule network tasks across available backends
+    - Benefits of Load Balancing:
+        -  Naming abstractions: Clients just need to know the load balancer address/ name and not every backend
+        - Fault tolerance: Using health checks and autoscaling, can handle fault in the system
+        - Cost and performance benefits: Reduces cost by distributing appropriately in the network by reducing latency
+    - Load Balancing Algorithms:
+        - Random: Uses random number generator and forwards the call randomly based on that.
+        - Round Robin: Using a circular queue, load balancer walks through it. Sending one request per server
+        - Weighted round robin: New web servers are assigned higher weight whereas old one are provided lower weight, Load balancer send more traffic to the ones with higher weight
+        - Dynamic Round robin: dynamically weight is generated and if two have same then based on round robin request is forwarded
+        - Fastest: Load balancer forward based on shortest response time
+        - Least connections: Load balancer forward based on least number of connections
+        - Observed: combination of fastest and least connections
+        - Predictive: Based on observed, it predicts which one will behave better
+    - L4 vs L7 load balancing:
+        - At L4 LB has visibility to network information like application port and protocol like tcp/udp and it does load balancing based on this limited networking info by combining with round. Robin or observed
+        - At L7, LB has more information about application and can perform more complex LB. With help of HTTP, LB can identify client session using cookies and perform load balancing based on that
+    - Reverse Proxy vs Load Balancing:
+        - Load balancing is type of proxy. Load balancer serves multiple instances of same application based on various algorithms and does not store cache. With proxy you don’t need multiple instances, but it serves as isolation of your backend servers and also maintains cache for your backend
+    - Proxy vs Reverse Proxy:
+        - Servers behind the proxy do not know about the client is, they just serve the response based on what proxy send them whereas in reverse proxy, client doesn’t know who the servers are and reverse proxy forwards it based on the setup. Load balancing is an example of reverse proxy.
+    - Features of Load balancing:
+        - Service discovery: Discovers available backend using this, examples are DNS, etcd, consul
+        - Health check: determines if the backend can serve traffic or not
+        - Load balancing: Based on lb algorithm, balding is done
+        - Sticky sessions: Based on client session and cookies in someone scenarios, requests needs to go to same backend server, this is determined using sit key sessions
+        - TLS termination: l7 load balancers perform xls/ssl termination (decryption)
+        - Observability: Logging of your backend servers
+    - Types of load balancer topologies: 
+        - Middle Proxy: Typical, where it is single point of failure, accepts all calls from client and forward to backend. Example ALB, NLB
+        - Edge proxy: Similar to middle proxy but uses internet thus must provide tls termination. Authentication like feature
+        - Embedded client proxy: Proxy is embedded with services this reduces latency and single point of failure but raises concern of implementing in all available language in which backend is written. Example grpc
+        - Sidecar proxy: language agnostic, becoming famous as it is concept of service mesh. Example nginx, envoy, linkerd
