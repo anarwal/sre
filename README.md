@@ -36,16 +36,16 @@
 Linux has new implementation Kernel based Virtual Machine called KVM which allows new interface to user space and allows OS to run above KVM based kernel.
  Another use is hypervisor where we use Linus for other running other OS.
 
-5. Troubleshooting
-     - Best Practice route suggested by Netflix    
-        -> Uptime: to get load average which tells what all processes are trying to run on system by CPU demand    
-        -> dmseg | tail: this gives last 10 commands which were run on machine and bio can see if there was any performance hit in that timeframe     
-        -> vmstat: this tells the virtual memory in use by processes , there is a newer command available dstat which combines all vmstat (virtual memory), iostat (CPU stats), ifstat. With vmstat you can look for r (which is the no of processed running on cpu and wait for their turn), free which tells you free memory available, si and so which tells swap in and swap out memory     
-        -> mpstat: which tells CPU time breakdown and can help us figure out if single CPU has most load      
-        -> pidstat: rolling process summary, can help us understand which process is using most CPU      
-        -> iostat: I/o stats       
-        -> free -m       
-        -> sar      
-        -> top rolling summary of all the commands which came up virtual memory, swap memory, load avg, cpu usage, process detail 
+5. Troubleshooting:
+    - Best Practice route suggested by Netflix    
+      - Uptime: to get load average which tells what all processes are trying to run on system by CPU demand    
+      -  dmseg | tail: this gives last 10 commands which were run on machine and bio can see if there was any performance hit in that timeframe     
+      -  vmstat: this tells the virtual memory in use by processes , there is a newer command available dstat which combines all vmstat (virtual memory), iostat (CPU stats), ifstat. With vmstat you can look for r (which is the no of processed running on cpu and wait for their turn), free which tells you free memory available, si and so which tells swap in and swap out memory     
+      -  mpstat: which tells CPU time breakdown and can help us figure out if single CPU has most load      
+      -  pidstat: rolling process summary, can help us understand which process is using most CPU      
+      -  iostat: I/o stats       
+      -  free -m       
+      -  sar      
+      -  top rolling summary of all the commands which came up virtual memory, swap memory, load avg, cpu usage, process detail 
         
 6. Networking:
