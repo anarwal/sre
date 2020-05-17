@@ -22,8 +22,8 @@
     
 4. Kernel 
     - Linux operating system has two space basically:  
-        —> User space: which executes user applications,  this also has GNU C library which provides access to kernel space and allows transition between user space application and kernel  
-        —> Kernel Space: this further level system call interface, kernel and architecture dependent code
+        - User space: which executes user applications,  this also has GNU C library which provides access to kernel space and allows transition between user space application and kernel  
+        - Kernel Space: this further level system call interface, kernel and architecture dependent code
         
     - Basics Components of kernel Space:
        - SCI: System. Call interface this is an interface which provides means to perform system calls from user space into kernel 
