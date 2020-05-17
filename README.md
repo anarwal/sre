@@ -24,13 +24,13 @@
     - Linux operating system has two space basically:  
         —> User space: which executes user applications,  this also has GNU C library which provides access to kernel space and allows transition between user space application and kernel  
         —> Kernel Space: this further level system call interface, kernel and architecture dependent code
-        Basics Components of kernel Space:
-         - SCI: System. Call interface this is an interface which provides means to perform system calls from user space into kernel 
-        - Process Management: Focusses on execution of processes (threads), kernel provides APIs to user space via SCI to perform operations for processes
-         - Memory management: Kernel includes means to manage the available memory for processes execution (which is 4KB), but also provides mechanisms to control physical and virtual mappings. It moves. Processed from memory to disk when all the available memory is exhausted.  
-        - Virtual File system: VFS provides common interface abstraction for file systems. It provides a switching mechanism between different file systems. This also has Buffer cache which stores data in between file system sand physical storage. - Network Stack: This provides interaface to communicate with networking subsystem and various protocols like TCP and Internet protocol. 
-        - Device Drivers: Majority of code lives here, which provides various device drivers and makes the device usable.  
-        - Architecure Dependent code: though majority of code is independent if architecture but there are few things which depends on the underlying system. 
+            Basics Components of kernel Space:
+             - SCI: System. Call interface this is an interface which provides means to perform system calls from user space into kernel 
+            - Process Management: Focusses on execution of processes (threads), kernel provides APIs to user space via SCI to perform operations for processes
+             - Memory management: Kernel includes means to manage the available memory for processes execution (which is 4KB), but also provides mechanisms to control physical and virtual mappings. It moves. Processed from memory to disk when all the available memory is exhausted.  
+            - Virtual File system: VFS provides common interface abstraction for file systems. It provides a switching mechanism between different file systems. This also has Buffer cache which stores data in between file system sand physical storage. - Network Stack: This provides interaface to communicate with networking subsystem and various protocols like TCP and Internet protocol. 
+            - Device Drivers: Majority of code lives here, which provides various device drivers and makes the device usable.  
+            - Architecure Dependent code: though majority of code is independent if architecture but there are few things which depends on the underlying system. 
         
 Linux has new implementation Kernel based Virtual Machine called KVM which allows new interface to user space and allows OS to run above KVM based kernel.
  Another use is hypervisor where we use Linus for other running other OS.
