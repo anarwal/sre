@@ -69,7 +69,7 @@ Operating systems use load balancing to schedule tasks across physical processor
 - **Observed**: combination of fastest and least connections
 - **Predictive**: Based on observed, it predicts which one will behave better
 
-####L4 vs L7 load balancing:
+#### L4 vs L7 load balancing:
 - At L4 LB has visibility to network information like application port and protocol like tcp/udp and it does load balancing based on this limited networking info by combining with round. Robin or observed
 - At L7, LB has more information about application and can perform more complex LB. With help of HTTP, LB can identify client session using cookies and perform load balancing based on that
 
