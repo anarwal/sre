@@ -41,15 +41,15 @@ What are inodes:
 
 ## 5. Troubleshooting
 Best Practice route suggested by Netflix:  
-   - uptime: to get load average which tells what all processes are trying to run on system by CPU demand
-   - dmseg | tail: this gives last 10 commands which were run on machine and bio can see if there was any performance hit in that timeframe
-   - vmstat: this tells the virtual memory in use by processes , there is a newer command available dstat which combines all vmstat (virtual memory), iostat (CPU stats), ifstat. With vmstat you can look for r (which is the no of processed running on cpu and wait for their turn), free which tells you free memory available, si and so which tells swap in and swap out memory
-   - mpstat: which tells CPU time breakdown and can help us figure out if single CPU has most load 
-   - pidstat: rolling process summary, can help us understand which process is using most CPU    
-   - iostat: I/o stats     
-   - free -m    
-   - sar: displays the contents of selected cumulative activity counters in the operating system. Information is reported on the paging system, i/o, CPUs, network interfaces, swap space, file system, and others.
-   - top: rolling summary of all the commands which came up virtual memory, swap memory, load avg, cpu usage, process detail 
+   - _uptime_: to get load average which tells what all processes are trying to run on system by CPU demand
+   - _dmseg | tail_: this gives last 10 commands which were run on machine and bio can see if there was any performance hit in that timeframe
+   - _vmstat_: this tells the virtual memory in use by processes , there is a newer command available dstat which combines all vmstat (virtual memory), iostat (CPU stats), ifstat. With vmstat you can look for r (which is the no of processed running on cpu and wait for their turn), free which tells you free memory available, si and so which tells swap in and swap out memory
+   - _mpstat_: which tells CPU time breakdown and can help us figure out if single CPU has most load 
+   - _pidstat_: rolling process summary, can help us understand which process is using most CPU    
+   - _iostat_: I/o stats     
+   - _free_ -m    
+   - _sar_: displays the contents of selected cumulative activity counters in the operating system. Information is reported on the paging system, i/o, CPUs, network interfaces, swap space, file system, and others.
+   - _top_: rolling summary of all the commands which came up virtual memory, swap memory, load avg, cpu usage, process detail 
 
 ## 6. Networking
 Operating systems use load balancing to schedule tasks across physical processors, container orchestrators such as Kubernetes use load balancing to schedule tasks across a compute cluster, and network load balancers use load balancing to schedule network tasks across available backends.
