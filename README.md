@@ -23,9 +23,9 @@ What are inodes:
 - each process stores its files in /proc where you can see all the files used/opened by that process
 - Under system /etc/limits you can edit the limits allowed for each process
 - If filesystem is full and you want to free up the space:  
-    - see if file is open using lsof, if not you can delete the file
-    - if it is used, you can using cp /dev/null which will reduce the file size to zero
-    - if flisystem has reserve, you can reduce reserve space
+    - see if file is open using `lsof`, if not you can delete the file
+    - if it is used, you can using `cp /dev/null` which will reduce the file size to zero
+    - if filesystem has reserve, you can reduce reserve space
 
 ## 4. Kernel
 - Linux operating system has two space basically:  
